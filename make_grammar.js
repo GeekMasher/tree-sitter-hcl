@@ -95,8 +95,8 @@ module.exports = function make_grammar(dialect) {
       ),
 
       numeric_lit: $ => choice(
-        /[0-9]+(\.[0-9]+([eE][-+]?[0-9]+)?)?/,
-        /0x[0-9a-zA-Z]+/
+        field('decimal', /[0-9]+(\.[0-9]+([eE][-+]?[0-9]+)?)?/),
+        field('hexadecimal', /0x[0-9a-zA-Z]+/)
       ),
 
       bool_lit: $ => choice('true', 'false'),
@@ -204,19 +204,19 @@ module.exports = function make_grammar(dialect) {
         $.identifier,
         optional(seq(',', $.identifier)),
         'in',
-        $.expression,
+        field('iter', $.expression),
         ':',
       ),
 
       for_cond: $ => seq(
         'if',
-        $.expression,
+        field('condition', $.expression),
       ),
 
       variable_expr: $ => prec.right($.identifier),
 
       function_call: $ => seq(
-        $.identifier,
+        field('function', $.identifier),
         $._function_call_start,
         optional($.function_arguments),
         $._function_call_end,
@@ -234,11 +234,11 @@ module.exports = function make_grammar(dialect) {
       ellipsis: $ => token('...'),
 
       conditional: $ => prec.left(seq(
-        $.expression,
+        field('condition', $.expression),
         '?',
-        $.expression,
+        field('body', $.expression),
         ':',
-        $.expression,
+        field('alternative', $.expression),
       )),
 
       operation: $ => choice($.unary_operation, $.binary_operation),
@@ -262,8 +262,8 @@ module.exports = function make_grammar(dialect) {
       },
 
       template_expr: $ => choice(
-        $.quoted_template,
-        $.heredoc_template,
+        field('quotedTemplate', $.quoted_template),
+        field('heredocTemplate', $.heredoc_template),
       ),
 
       quoted_template: $ => prec(PREC.quoted_template, seq(
@@ -287,7 +287,7 @@ module.exports = function make_grammar(dialect) {
         $.template_interpolation,
         $.template_directive,
         $.template_literal,
-       )),
+      )),
 
       template_literal: $ => prec.right(repeat1(
         $._template_literal_chunk,
