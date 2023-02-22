@@ -1,5 +1,161 @@
 [
   {
+    "type": "_collection_value",
+    "named": true,
+    "subtypes": [
+      {
+        "type": "object",
+        "named": true
+      },
+      {
+        "type": "tuple",
+        "named": true
+      }
+    ]
+  },
+  {
+    "type": "_expr_term",
+    "named": true,
+    "subtypes": [
+      {
+        "type": "_collection_value",
+        "named": true
+      },
+      {
+        "type": "_literal_value",
+        "named": true
+      },
+      {
+        "type": "_operation",
+        "named": true
+      },
+      {
+        "type": "_template_expr",
+        "named": true
+      },
+      {
+        "type": "for_expr",
+        "named": true
+      },
+      {
+        "type": "function_call",
+        "named": true
+      },
+      {
+        "type": "get_attr_expr",
+        "named": true
+      },
+      {
+        "type": "index_expr",
+        "named": true
+      },
+      {
+        "type": "parenthesized_expr",
+        "named": true
+      },
+      {
+        "type": "splat_expr",
+        "named": true
+      },
+      {
+        "type": "variable_expr",
+        "named": true
+      }
+    ]
+  },
+  {
+    "type": "_expression",
+    "named": true,
+    "subtypes": [
+      {
+        "type": "_expr_term",
+        "named": true
+      },
+      {
+        "type": "conditional",
+        "named": true
+      }
+    ]
+  },
+  {
+    "type": "_literal_value",
+    "named": true,
+    "subtypes": [
+      {
+        "type": "bool_lit",
+        "named": true
+      },
+      {
+        "type": "null_lit",
+        "named": true
+      },
+      {
+        "type": "numeric_lit",
+        "named": true
+      },
+      {
+        "type": "string_lit",
+        "named": true
+      }
+    ]
+  },
+  {
+    "type": "_operation",
+    "named": true,
+    "subtypes": [
+      {
+        "type": "binary_operation",
+        "named": true
+      },
+      {
+        "type": "unary_operation",
+        "named": true
+      }
+    ]
+  },
+  {
+    "type": "_splat",
+    "named": true,
+    "subtypes": [
+      {
+        "type": "attr_splat",
+        "named": true
+      },
+      {
+        "type": "full_splat",
+        "named": true
+      }
+    ]
+  },
+  {
+    "type": "_template_directive",
+    "named": true,
+    "subtypes": [
+      {
+        "type": "template_for",
+        "named": true
+      },
+      {
+        "type": "template_if",
+        "named": true
+      }
+    ]
+  },
+  {
+    "type": "_template_expr",
+    "named": true,
+    "subtypes": [
+      {
+        "type": "heredoc_template",
+        "named": true
+      },
+      {
+        "type": "quoted_template",
+        "named": true
+      }
+    ]
+  },
+  {
     "type": "attr_splat",
     "named": true,
     "fields": {
@@ -34,51 +190,7 @@
         "required": true,
         "types": [
           {
-            "type": "collection_value",
-            "named": true
-          },
-          {
-            "type": "conditional",
-            "named": true
-          },
-          {
-            "type": "for_expr",
-            "named": true
-          },
-          {
-            "type": "function_call",
-            "named": true
-          },
-          {
-            "type": "get_attr_expr",
-            "named": true
-          },
-          {
-            "type": "index_expr",
-            "named": true
-          },
-          {
-            "type": "literal_value",
-            "named": true
-          },
-          {
-            "type": "operation",
-            "named": true
-          },
-          {
-            "type": "parenthesized_expr",
-            "named": true
-          },
-          {
-            "type": "splat_expr",
-            "named": true
-          },
-          {
-            "type": "template_expr",
-            "named": true
-          },
-          {
-            "type": "variable_expr",
+            "type": "_expression",
             "named": true
           }
         ]
@@ -94,47 +206,7 @@
         "required": true,
         "types": [
           {
-            "type": "collection_value",
-            "named": true
-          },
-          {
-            "type": "for_expr",
-            "named": true
-          },
-          {
-            "type": "function_call",
-            "named": true
-          },
-          {
-            "type": "get_attr_expr",
-            "named": true
-          },
-          {
-            "type": "index_expr",
-            "named": true
-          },
-          {
-            "type": "literal_value",
-            "named": true
-          },
-          {
-            "type": "operation",
-            "named": true
-          },
-          {
-            "type": "parenthesized_expr",
-            "named": true
-          },
-          {
-            "type": "splat_expr",
-            "named": true
-          },
-          {
-            "type": "template_expr",
-            "named": true
-          },
-          {
-            "type": "variable_expr",
+            "type": "_expr_term",
             "named": true
           }
         ]
@@ -202,47 +274,7 @@
         "required": true,
         "types": [
           {
-            "type": "collection_value",
-            "named": true
-          },
-          {
-            "type": "for_expr",
-            "named": true
-          },
-          {
-            "type": "function_call",
-            "named": true
-          },
-          {
-            "type": "get_attr_expr",
-            "named": true
-          },
-          {
-            "type": "index_expr",
-            "named": true
-          },
-          {
-            "type": "literal_value",
-            "named": true
-          },
-          {
-            "type": "operation",
-            "named": true
-          },
-          {
-            "type": "parenthesized_expr",
-            "named": true
-          },
-          {
-            "type": "splat_expr",
-            "named": true
-          },
-          {
-            "type": "template_expr",
-            "named": true
-          },
-          {
-            "type": "variable_expr",
+            "type": "_expr_term",
             "named": true
           }
         ]
@@ -314,25 +346,6 @@
     "fields": {}
   },
   {
-    "type": "collection_value",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "object",
-          "named": true
-        },
-        {
-          "type": "tuple",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "conditional",
     "named": true,
     "fields": {
@@ -341,51 +354,7 @@
         "required": true,
         "types": [
           {
-            "type": "collection_value",
-            "named": true
-          },
-          {
-            "type": "conditional",
-            "named": true
-          },
-          {
-            "type": "for_expr",
-            "named": true
-          },
-          {
-            "type": "function_call",
-            "named": true
-          },
-          {
-            "type": "get_attr_expr",
-            "named": true
-          },
-          {
-            "type": "index_expr",
-            "named": true
-          },
-          {
-            "type": "literal_value",
-            "named": true
-          },
-          {
-            "type": "operation",
-            "named": true
-          },
-          {
-            "type": "parenthesized_expr",
-            "named": true
-          },
-          {
-            "type": "splat_expr",
-            "named": true
-          },
-          {
-            "type": "template_expr",
-            "named": true
-          },
-          {
-            "type": "variable_expr",
+            "type": "_expression",
             "named": true
           }
         ]
@@ -395,51 +364,7 @@
         "required": true,
         "types": [
           {
-            "type": "collection_value",
-            "named": true
-          },
-          {
-            "type": "conditional",
-            "named": true
-          },
-          {
-            "type": "for_expr",
-            "named": true
-          },
-          {
-            "type": "function_call",
-            "named": true
-          },
-          {
-            "type": "get_attr_expr",
-            "named": true
-          },
-          {
-            "type": "index_expr",
-            "named": true
-          },
-          {
-            "type": "literal_value",
-            "named": true
-          },
-          {
-            "type": "operation",
-            "named": true
-          },
-          {
-            "type": "parenthesized_expr",
-            "named": true
-          },
-          {
-            "type": "splat_expr",
-            "named": true
-          },
-          {
-            "type": "template_expr",
-            "named": true
-          },
-          {
-            "type": "variable_expr",
+            "type": "_expression",
             "named": true
           }
         ]
@@ -449,51 +374,7 @@
         "required": true,
         "types": [
           {
-            "type": "collection_value",
-            "named": true
-          },
-          {
-            "type": "conditional",
-            "named": true
-          },
-          {
-            "type": "for_expr",
-            "named": true
-          },
-          {
-            "type": "function_call",
-            "named": true
-          },
-          {
-            "type": "get_attr_expr",
-            "named": true
-          },
-          {
-            "type": "index_expr",
-            "named": true
-          },
-          {
-            "type": "literal_value",
-            "named": true
-          },
-          {
-            "type": "operation",
-            "named": true
-          },
-          {
-            "type": "parenthesized_expr",
-            "named": true
-          },
-          {
-            "type": "splat_expr",
-            "named": true
-          },
-          {
-            "type": "template_expr",
-            "named": true
-          },
-          {
-            "type": "variable_expr",
+            "type": "_expression",
             "named": true
           }
         ]
@@ -547,51 +428,7 @@
         "required": false,
         "types": [
           {
-            "type": "collection_value",
-            "named": true
-          },
-          {
-            "type": "conditional",
-            "named": true
-          },
-          {
-            "type": "for_expr",
-            "named": true
-          },
-          {
-            "type": "function_call",
-            "named": true
-          },
-          {
-            "type": "get_attr_expr",
-            "named": true
-          },
-          {
-            "type": "index_expr",
-            "named": true
-          },
-          {
-            "type": "literal_value",
-            "named": true
-          },
-          {
-            "type": "operation",
-            "named": true
-          },
-          {
-            "type": "parenthesized_expr",
-            "named": true
-          },
-          {
-            "type": "splat_expr",
-            "named": true
-          },
-          {
-            "type": "template_expr",
-            "named": true
-          },
-          {
-            "type": "variable_expr",
+            "type": "_expression",
             "named": true
           }
         ]
@@ -601,51 +438,7 @@
         "required": true,
         "types": [
           {
-            "type": "collection_value",
-            "named": true
-          },
-          {
-            "type": "conditional",
-            "named": true
-          },
-          {
-            "type": "for_expr",
-            "named": true
-          },
-          {
-            "type": "function_call",
-            "named": true
-          },
-          {
-            "type": "get_attr_expr",
-            "named": true
-          },
-          {
-            "type": "index_expr",
-            "named": true
-          },
-          {
-            "type": "literal_value",
-            "named": true
-          },
-          {
-            "type": "operation",
-            "named": true
-          },
-          {
-            "type": "parenthesized_expr",
-            "named": true
-          },
-          {
-            "type": "splat_expr",
-            "named": true
-          },
-          {
-            "type": "template_expr",
-            "named": true
-          },
-          {
-            "type": "variable_expr",
+            "type": "_expression",
             "named": true
           }
         ]
@@ -655,51 +448,7 @@
         "required": true,
         "types": [
           {
-            "type": "collection_value",
-            "named": true
-          },
-          {
-            "type": "conditional",
-            "named": true
-          },
-          {
-            "type": "for_expr",
-            "named": true
-          },
-          {
-            "type": "function_call",
-            "named": true
-          },
-          {
-            "type": "get_attr_expr",
-            "named": true
-          },
-          {
-            "type": "index_expr",
-            "named": true
-          },
-          {
-            "type": "literal_value",
-            "named": true
-          },
-          {
-            "type": "operation",
-            "named": true
-          },
-          {
-            "type": "parenthesized_expr",
-            "named": true
-          },
-          {
-            "type": "splat_expr",
-            "named": true
-          },
-          {
-            "type": "template_expr",
-            "named": true
-          },
-          {
-            "type": "variable_expr",
+            "type": "_expression",
             "named": true
           }
         ]
@@ -719,51 +468,7 @@
         "required": true,
         "types": [
           {
-            "type": "collection_value",
-            "named": true
-          },
-          {
-            "type": "conditional",
-            "named": true
-          },
-          {
-            "type": "for_expr",
-            "named": true
-          },
-          {
-            "type": "function_call",
-            "named": true
-          },
-          {
-            "type": "get_attr_expr",
-            "named": true
-          },
-          {
-            "type": "index_expr",
-            "named": true
-          },
-          {
-            "type": "literal_value",
-            "named": true
-          },
-          {
-            "type": "operation",
-            "named": true
-          },
-          {
-            "type": "parenthesized_expr",
-            "named": true
-          },
-          {
-            "type": "splat_expr",
-            "named": true
-          },
-          {
-            "type": "template_expr",
-            "named": true
-          },
-          {
-            "type": "variable_expr",
+            "type": "_expression",
             "named": true
           }
         ]
@@ -789,51 +494,7 @@
         "required": false,
         "types": [
           {
-            "type": "collection_value",
-            "named": true
-          },
-          {
-            "type": "conditional",
-            "named": true
-          },
-          {
-            "type": "for_expr",
-            "named": true
-          },
-          {
-            "type": "function_call",
-            "named": true
-          },
-          {
-            "type": "get_attr_expr",
-            "named": true
-          },
-          {
-            "type": "index_expr",
-            "named": true
-          },
-          {
-            "type": "literal_value",
-            "named": true
-          },
-          {
-            "type": "operation",
-            "named": true
-          },
-          {
-            "type": "parenthesized_expr",
-            "named": true
-          },
-          {
-            "type": "splat_expr",
-            "named": true
-          },
-          {
-            "type": "template_expr",
-            "named": true
-          },
-          {
-            "type": "variable_expr",
+            "type": "_expression",
             "named": true
           }
         ]
@@ -843,51 +504,7 @@
         "required": true,
         "types": [
           {
-            "type": "collection_value",
-            "named": true
-          },
-          {
-            "type": "conditional",
-            "named": true
-          },
-          {
-            "type": "for_expr",
-            "named": true
-          },
-          {
-            "type": "function_call",
-            "named": true
-          },
-          {
-            "type": "get_attr_expr",
-            "named": true
-          },
-          {
-            "type": "index_expr",
-            "named": true
-          },
-          {
-            "type": "literal_value",
-            "named": true
-          },
-          {
-            "type": "operation",
-            "named": true
-          },
-          {
-            "type": "parenthesized_expr",
-            "named": true
-          },
-          {
-            "type": "splat_expr",
-            "named": true
-          },
-          {
-            "type": "template_expr",
-            "named": true
-          },
-          {
-            "type": "variable_expr",
+            "type": "_expression",
             "named": true
           }
         ]
@@ -897,51 +514,7 @@
         "required": true,
         "types": [
           {
-            "type": "collection_value",
-            "named": true
-          },
-          {
-            "type": "conditional",
-            "named": true
-          },
-          {
-            "type": "for_expr",
-            "named": true
-          },
-          {
-            "type": "function_call",
-            "named": true
-          },
-          {
-            "type": "get_attr_expr",
-            "named": true
-          },
-          {
-            "type": "index_expr",
-            "named": true
-          },
-          {
-            "type": "literal_value",
-            "named": true
-          },
-          {
-            "type": "operation",
-            "named": true
-          },
-          {
-            "type": "parenthesized_expr",
-            "named": true
-          },
-          {
-            "type": "splat_expr",
-            "named": true
-          },
-          {
-            "type": "template_expr",
-            "named": true
-          },
-          {
-            "type": "variable_expr",
+            "type": "_expression",
             "named": true
           }
         ]
@@ -987,51 +560,7 @@
         "required": false,
         "types": [
           {
-            "type": "collection_value",
-            "named": true
-          },
-          {
-            "type": "conditional",
-            "named": true
-          },
-          {
-            "type": "for_expr",
-            "named": true
-          },
-          {
-            "type": "function_call",
-            "named": true
-          },
-          {
-            "type": "get_attr_expr",
-            "named": true
-          },
-          {
-            "type": "index_expr",
-            "named": true
-          },
-          {
-            "type": "literal_value",
-            "named": true
-          },
-          {
-            "type": "operation",
-            "named": true
-          },
-          {
-            "type": "parenthesized_expr",
-            "named": true
-          },
-          {
-            "type": "splat_expr",
-            "named": true
-          },
-          {
-            "type": "template_expr",
-            "named": true
-          },
-          {
-            "type": "variable_expr",
+            "type": "_expression",
             "named": true
           }
         ]
@@ -1083,47 +612,7 @@
         "required": true,
         "types": [
           {
-            "type": "collection_value",
-            "named": true
-          },
-          {
-            "type": "for_expr",
-            "named": true
-          },
-          {
-            "type": "function_call",
-            "named": true
-          },
-          {
-            "type": "get_attr_expr",
-            "named": true
-          },
-          {
-            "type": "index_expr",
-            "named": true
-          },
-          {
-            "type": "literal_value",
-            "named": true
-          },
-          {
-            "type": "operation",
-            "named": true
-          },
-          {
-            "type": "parenthesized_expr",
-            "named": true
-          },
-          {
-            "type": "splat_expr",
-            "named": true
-          },
-          {
-            "type": "template_expr",
-            "named": true
-          },
-          {
-            "type": "variable_expr",
+            "type": "_expr_term",
             "named": true
           }
         ]
@@ -1164,7 +653,7 @@
       "required": true,
       "types": [
         {
-          "type": "template_directive",
+          "type": "_template_directive",
           "named": true
         },
         {
@@ -1187,51 +676,7 @@
         "required": true,
         "types": [
           {
-            "type": "collection_value",
-            "named": true
-          },
-          {
-            "type": "conditional",
-            "named": true
-          },
-          {
-            "type": "for_expr",
-            "named": true
-          },
-          {
-            "type": "function_call",
-            "named": true
-          },
-          {
-            "type": "get_attr_expr",
-            "named": true
-          },
-          {
-            "type": "index_expr",
-            "named": true
-          },
-          {
-            "type": "literal_value",
-            "named": true
-          },
-          {
-            "type": "operation",
-            "named": true
-          },
-          {
-            "type": "parenthesized_expr",
-            "named": true
-          },
-          {
-            "type": "splat_expr",
-            "named": true
-          },
-          {
-            "type": "template_expr",
-            "named": true
-          },
-          {
-            "type": "variable_expr",
+            "type": "_expression",
             "named": true
           }
         ]
@@ -1247,47 +692,7 @@
         "required": true,
         "types": [
           {
-            "type": "collection_value",
-            "named": true
-          },
-          {
-            "type": "for_expr",
-            "named": true
-          },
-          {
-            "type": "function_call",
-            "named": true
-          },
-          {
-            "type": "get_attr_expr",
-            "named": true
-          },
-          {
-            "type": "index_expr",
-            "named": true
-          },
-          {
-            "type": "literal_value",
-            "named": true
-          },
-          {
-            "type": "operation",
-            "named": true
-          },
-          {
-            "type": "parenthesized_expr",
-            "named": true
-          },
-          {
-            "type": "splat_expr",
-            "named": true
-          },
-          {
-            "type": "template_expr",
-            "named": true
-          },
-          {
-            "type": "variable_expr",
+            "type": "_expr_term",
             "named": true
           }
         ]
@@ -1297,82 +702,11 @@
         "required": true,
         "types": [
           {
-            "type": "collection_value",
-            "named": true
-          },
-          {
-            "type": "conditional",
-            "named": true
-          },
-          {
-            "type": "for_expr",
-            "named": true
-          },
-          {
-            "type": "function_call",
-            "named": true
-          },
-          {
-            "type": "get_attr_expr",
-            "named": true
-          },
-          {
-            "type": "index_expr",
-            "named": true
-          },
-          {
-            "type": "literal_value",
-            "named": true
-          },
-          {
-            "type": "operation",
-            "named": true
-          },
-          {
-            "type": "parenthesized_expr",
-            "named": true
-          },
-          {
-            "type": "splat_expr",
-            "named": true
-          },
-          {
-            "type": "template_expr",
-            "named": true
-          },
-          {
-            "type": "variable_expr",
+            "type": "_expression",
             "named": true
           }
         ]
       }
-    }
-  },
-  {
-    "type": "literal_value",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "bool_lit",
-          "named": true
-        },
-        {
-          "type": "null_lit",
-          "named": true
-        },
-        {
-          "type": "numeric_lit",
-          "named": true
-        },
-        {
-          "type": "string_lit",
-          "named": true
-        }
-      ]
     }
   },
   {
@@ -1405,51 +739,7 @@
         "required": true,
         "types": [
           {
-            "type": "collection_value",
-            "named": true
-          },
-          {
-            "type": "conditional",
-            "named": true
-          },
-          {
-            "type": "for_expr",
-            "named": true
-          },
-          {
-            "type": "function_call",
-            "named": true
-          },
-          {
-            "type": "get_attr_expr",
-            "named": true
-          },
-          {
-            "type": "index_expr",
-            "named": true
-          },
-          {
-            "type": "literal_value",
-            "named": true
-          },
-          {
-            "type": "operation",
-            "named": true
-          },
-          {
-            "type": "parenthesized_expr",
-            "named": true
-          },
-          {
-            "type": "splat_expr",
-            "named": true
-          },
-          {
-            "type": "template_expr",
-            "named": true
-          },
-          {
-            "type": "variable_expr",
+            "type": "_expression",
             "named": true
           }
         ]
@@ -1459,74 +749,11 @@
         "required": true,
         "types": [
           {
-            "type": "collection_value",
-            "named": true
-          },
-          {
-            "type": "conditional",
-            "named": true
-          },
-          {
-            "type": "for_expr",
-            "named": true
-          },
-          {
-            "type": "function_call",
-            "named": true
-          },
-          {
-            "type": "get_attr_expr",
-            "named": true
-          },
-          {
-            "type": "index_expr",
-            "named": true
-          },
-          {
-            "type": "literal_value",
-            "named": true
-          },
-          {
-            "type": "operation",
-            "named": true
-          },
-          {
-            "type": "parenthesized_expr",
-            "named": true
-          },
-          {
-            "type": "splat_expr",
-            "named": true
-          },
-          {
-            "type": "template_expr",
-            "named": true
-          },
-          {
-            "type": "variable_expr",
+            "type": "_expression",
             "named": true
           }
         ]
       }
-    }
-  },
-  {
-    "type": "operation",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "binary_operation",
-          "named": true
-        },
-        {
-          "type": "unary_operation",
-          "named": true
-        }
-      ]
     }
   },
   {
@@ -1538,51 +765,7 @@
       "required": true,
       "types": [
         {
-          "type": "collection_value",
-          "named": true
-        },
-        {
-          "type": "conditional",
-          "named": true
-        },
-        {
-          "type": "for_expr",
-          "named": true
-        },
-        {
-          "type": "function_call",
-          "named": true
-        },
-        {
-          "type": "get_attr_expr",
-          "named": true
-        },
-        {
-          "type": "index_expr",
-          "named": true
-        },
-        {
-          "type": "literal_value",
-          "named": true
-        },
-        {
-          "type": "operation",
-          "named": true
-        },
-        {
-          "type": "parenthesized_expr",
-          "named": true
-        },
-        {
-          "type": "splat_expr",
-          "named": true
-        },
-        {
-          "type": "template_expr",
-          "named": true
-        },
-        {
-          "type": "variable_expr",
+          "type": "_expression",
           "named": true
         }
       ]
@@ -1597,7 +780,7 @@
       "required": false,
       "types": [
         {
-          "type": "template_directive",
+          "type": "_template_directive",
           "named": true
         },
         {
@@ -1620,47 +803,7 @@
         "required": true,
         "types": [
           {
-            "type": "collection_value",
-            "named": true
-          },
-          {
-            "type": "for_expr",
-            "named": true
-          },
-          {
-            "type": "function_call",
-            "named": true
-          },
-          {
-            "type": "get_attr_expr",
-            "named": true
-          },
-          {
-            "type": "index_expr",
-            "named": true
-          },
-          {
-            "type": "literal_value",
-            "named": true
-          },
-          {
-            "type": "operation",
-            "named": true
-          },
-          {
-            "type": "parenthesized_expr",
-            "named": true
-          },
-          {
-            "type": "splat_expr",
-            "named": true
-          },
-          {
-            "type": "template_expr",
-            "named": true
-          },
-          {
-            "type": "variable_expr",
+            "type": "_expr_term",
             "named": true
           }
         ]
@@ -1670,11 +813,7 @@
         "required": true,
         "types": [
           {
-            "type": "attr_splat",
-            "named": true
-          },
-          {
-            "type": "full_splat",
+            "type": "_splat",
             "named": true
           }
         ]
@@ -1697,44 +836,6 @@
     }
   },
   {
-    "type": "template_directive",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "template_for",
-          "named": true
-        },
-        {
-          "type": "template_if",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "template_expr",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "heredoc_template",
-          "named": true
-        },
-        {
-          "type": "quoted_template",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "template_for",
     "named": true,
     "fields": {
@@ -1743,7 +844,7 @@
         "required": false,
         "types": [
           {
-            "type": "template_directive",
+            "type": "_template_directive",
             "named": true
           },
           {
@@ -1761,51 +862,7 @@
         "required": true,
         "types": [
           {
-            "type": "collection_value",
-            "named": true
-          },
-          {
-            "type": "conditional",
-            "named": true
-          },
-          {
-            "type": "for_expr",
-            "named": true
-          },
-          {
-            "type": "function_call",
-            "named": true
-          },
-          {
-            "type": "get_attr_expr",
-            "named": true
-          },
-          {
-            "type": "index_expr",
-            "named": true
-          },
-          {
-            "type": "literal_value",
-            "named": true
-          },
-          {
-            "type": "operation",
-            "named": true
-          },
-          {
-            "type": "parenthesized_expr",
-            "named": true
-          },
-          {
-            "type": "splat_expr",
-            "named": true
-          },
-          {
-            "type": "template_expr",
-            "named": true
-          },
-          {
-            "type": "variable_expr",
+            "type": "_expression",
             "named": true
           }
         ]
@@ -1831,7 +888,7 @@
         "required": false,
         "types": [
           {
-            "type": "template_directive",
+            "type": "_template_directive",
             "named": true
           },
           {
@@ -1849,7 +906,7 @@
         "required": false,
         "types": [
           {
-            "type": "template_directive",
+            "type": "_template_directive",
             "named": true
           },
           {
@@ -1867,51 +924,7 @@
         "required": true,
         "types": [
           {
-            "type": "collection_value",
-            "named": true
-          },
-          {
-            "type": "conditional",
-            "named": true
-          },
-          {
-            "type": "for_expr",
-            "named": true
-          },
-          {
-            "type": "function_call",
-            "named": true
-          },
-          {
-            "type": "get_attr_expr",
-            "named": true
-          },
-          {
-            "type": "index_expr",
-            "named": true
-          },
-          {
-            "type": "literal_value",
-            "named": true
-          },
-          {
-            "type": "operation",
-            "named": true
-          },
-          {
-            "type": "parenthesized_expr",
-            "named": true
-          },
-          {
-            "type": "splat_expr",
-            "named": true
-          },
-          {
-            "type": "template_expr",
-            "named": true
-          },
-          {
-            "type": "variable_expr",
+            "type": "_expression",
             "named": true
           }
         ]
@@ -1927,51 +940,7 @@
         "required": false,
         "types": [
           {
-            "type": "collection_value",
-            "named": true
-          },
-          {
-            "type": "conditional",
-            "named": true
-          },
-          {
-            "type": "for_expr",
-            "named": true
-          },
-          {
-            "type": "function_call",
-            "named": true
-          },
-          {
-            "type": "get_attr_expr",
-            "named": true
-          },
-          {
-            "type": "index_expr",
-            "named": true
-          },
-          {
-            "type": "literal_value",
-            "named": true
-          },
-          {
-            "type": "operation",
-            "named": true
-          },
-          {
-            "type": "parenthesized_expr",
-            "named": true
-          },
-          {
-            "type": "splat_expr",
-            "named": true
-          },
-          {
-            "type": "template_expr",
-            "named": true
-          },
-          {
-            "type": "variable_expr",
+            "type": "_expression",
             "named": true
           }
         ]
@@ -1992,51 +961,7 @@
         "required": false,
         "types": [
           {
-            "type": "collection_value",
-            "named": true
-          },
-          {
-            "type": "conditional",
-            "named": true
-          },
-          {
-            "type": "for_expr",
-            "named": true
-          },
-          {
-            "type": "function_call",
-            "named": true
-          },
-          {
-            "type": "get_attr_expr",
-            "named": true
-          },
-          {
-            "type": "index_expr",
-            "named": true
-          },
-          {
-            "type": "literal_value",
-            "named": true
-          },
-          {
-            "type": "operation",
-            "named": true
-          },
-          {
-            "type": "parenthesized_expr",
-            "named": true
-          },
-          {
-            "type": "splat_expr",
-            "named": true
-          },
-          {
-            "type": "template_expr",
-            "named": true
-          },
-          {
-            "type": "variable_expr",
+            "type": "_expression",
             "named": true
           }
         ]
@@ -2052,47 +977,7 @@
         "required": true,
         "types": [
           {
-            "type": "collection_value",
-            "named": true
-          },
-          {
-            "type": "for_expr",
-            "named": true
-          },
-          {
-            "type": "function_call",
-            "named": true
-          },
-          {
-            "type": "get_attr_expr",
-            "named": true
-          },
-          {
-            "type": "index_expr",
-            "named": true
-          },
-          {
-            "type": "literal_value",
-            "named": true
-          },
-          {
-            "type": "operation",
-            "named": true
-          },
-          {
-            "type": "parenthesized_expr",
-            "named": true
-          },
-          {
-            "type": "splat_expr",
-            "named": true
-          },
-          {
-            "type": "template_expr",
-            "named": true
-          },
-          {
-            "type": "variable_expr",
+            "type": "_expr_term",
             "named": true
           }
         ]

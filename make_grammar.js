@@ -32,6 +32,9 @@ module.exports = function make_grammar(dialect) {
       $._whitespace,
     ],
 
+    supertypes: $ => [$._expr_term, $._expression, $._splat,
+    $._literal_value, $._collection_value, $._operation, $._template_directive, $._template_expr],
+
     rules: {
       // also allow objects to handle .tfvars in json format
       config_file: $ => optional(choice($.body, $.object)),
@@ -74,13 +77,13 @@ module.exports = function make_grammar(dialect) {
       // contain instances of operations without parentheses. think for example:
       // x = a == "" && b != ""
       _expr_term: $ => choice(
-        $.literal_value,
-        $.template_expr,
-        $.collection_value,
+        $._literal_value,
+        $._template_expr,
+        $._collection_value,
         $.variable_expr,
         $.function_call,
         $.for_expr,
-        $.operation,
+        $._operation,
         $.index_expr,
         $.get_attr_expr,
         $.splat_expr,
@@ -93,7 +96,7 @@ module.exports = function make_grammar(dialect) {
       get_attr_expr: $ => seq(field('expr', $._expr_term), $._get_attr),
       splat_expr: $ => seq(field('expr', $._expr_term), field('splat', $._splat)),
 
-      literal_value: $ => choice(
+      _literal_value: $ => choice(
         $.numeric_lit,
         $.bool_lit,
         $.null_lit,
@@ -116,7 +119,7 @@ module.exports = function make_grammar(dialect) {
       )),
 
 
-      collection_value: $ => choice(
+      _collection_value: $ => choice(
         $.tuple,
         $.object,
       ),
@@ -249,7 +252,7 @@ module.exports = function make_grammar(dialect) {
         field('alternative', $._expression),
       )),
 
-      operation: $ => choice($.unary_operation, $.binary_operation),
+      _operation: $ => choice($.unary_operation, $.binary_operation),
 
       unary_operation: $ => prec.left(PREC.unary, seq(field('operator', choice('-', '!')), field('operand', $._expr_term))),
 
@@ -269,7 +272,7 @@ module.exports = function make_grammar(dialect) {
         );
       },
 
-      template_expr: $ => choice(
+      _template_expr: $ => choice(
         $.quoted_template,
         $.heredoc_template,
       ),
@@ -293,7 +296,7 @@ module.exports = function make_grammar(dialect) {
 
       _template: $ => repeat1(choice(
         $.template_interpolation,
-        $.template_directive,
+        $._template_directive,
         $.template_literal,
       )),
 
@@ -309,7 +312,7 @@ module.exports = function make_grammar(dialect) {
         $._template_interpolation_end,
       ),
 
-      template_directive: $ => choice(
+      _template_directive: $ => choice(
         $.template_for,
         $.template_if,
       ),

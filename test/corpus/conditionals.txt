@@ -13,10 +13,8 @@ foo = predicate() ? 1 : 2
       (conditional
         (function_call
           (identifier))
-        (literal_value
-          (numeric_lit))
-        (literal_value
-          (numeric_lit))))))
+        (numeric_lit)
+        (numeric_lit)))))
 
 ================================================================================
 nested conditional expression expression
@@ -33,18 +31,13 @@ foo = ( true ? false : true ) ? "yes" : "no"
       (conditional
         (parenthesized_expr
           (conditional
-            (literal_value
-              (bool_lit))
-            (literal_value
-              (bool_lit))
-            (literal_value
-              (bool_lit))))
-        (literal_value
-          (string_lit
-            (template_literal)))
-        (literal_value
-          (string_lit
-            (template_literal)))))))
+            (bool_lit)
+            (bool_lit)
+            (bool_lit)))
+        (string_lit
+          (template_literal))
+        (string_lit
+          (template_literal))))))
 
 ================================================================================
 nested conditional expression expression without parentheses
@@ -60,15 +53,10 @@ foo =  true ? false : true  ? "yes" : "no"
       (identifier)
       (conditional
         (conditional
-          (literal_value
-            (bool_lit))
-          (literal_value
-            (bool_lit))
-          (literal_value
-            (bool_lit)))
-        (literal_value
-          (string_lit
-            (template_literal)))
-        (literal_value
-          (string_lit
-            (template_literal)))))))
+          (bool_lit)
+          (bool_lit)
+          (bool_lit))
+        (string_lit
+          (template_literal))
+        (string_lit
+          (template_literal))))))
