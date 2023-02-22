@@ -32,10 +32,9 @@ foo = bar[1]
         (variable_expr
           (identifier))
         (index
-          (new_index
-            (expression
-              (literal_value
-                (numeric_lit)))))))))
+          (expression
+            (literal_value
+              (numeric_lit))))))))
 
 ================================================================================
 attr splat
@@ -103,7 +102,6 @@ foo = bar[*][*].a.b.c[d]
             (get_attr
               (identifier))
             (index
-              (new_index
-                (expression
-                  (variable_expr
-                    (identifier)))))))))))
+              (expression
+                (variable_expr
+                  (identifier))))))))))

@@ -29,13 +29,12 @@ foo = bar("foo")
       (expression
         (function_call
           (identifier)
-          (function_arguments
-            (expression
-              (literal_value
-                (string_lit
-                  (quoted_template_start)
-                  (template_literal)
-                  (quoted_template_end))))))))))
+          (expression
+            (literal_value
+              (string_lit
+                (quoted_template_start)
+                (template_literal)
+                (quoted_template_end)))))))))
 
 ================================================================================
 variadic function call
@@ -52,11 +51,10 @@ foo = bar(x...)
       (expression
         (function_call
           (identifier)
-          (function_arguments
-            (expression
-              (variable_expr
-                (identifier)))
-            (ellipsis)))))))
+          (expression
+            (variable_expr
+              (identifier)))
+          (ellipsis))))))
 
 ================================================================================
 multiline function call
@@ -77,22 +75,21 @@ foo = bar(
       (expression
         (function_call
           (identifier)
-          (function_arguments
-            (expression
-              (literal_value
-                (string_lit
-                  (quoted_template_start)
-                  (template_literal)
-                  (quoted_template_end))))
-            (expression
-              (literal_value
-                (string_lit
-                  (quoted_template_start)
-                  (template_literal)
-                  (quoted_template_end))))
-            (expression
-              (literal_value
-                (string_lit
-                  (quoted_template_start)
-                  (template_literal)
-                  (quoted_template_end))))))))))
+          (expression
+            (literal_value
+              (string_lit
+                (quoted_template_start)
+                (template_literal)
+                (quoted_template_end))))
+          (expression
+            (literal_value
+              (string_lit
+                (quoted_template_start)
+                (template_literal)
+                (quoted_template_end))))
+          (expression
+            (literal_value
+              (string_lit
+                (quoted_template_start)
+                (template_literal)
+                (quoted_template_end)))))))))
