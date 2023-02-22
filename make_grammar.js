@@ -22,8 +22,8 @@ module.exports = function make_grammar(dialect) {
       $._template_literal_chunk,
       $.template_interpolation_start,
       $.template_interpolation_end,
-      $.template_directive_start,
-      $.template_directive_end,
+      $._template_directive_start,
+      $._template_directive_end,
       $.heredoc_identifier,
     ],
 
@@ -307,61 +307,61 @@ module.exports = function make_grammar(dialect) {
       ),
 
       template_for: $ => seq(
-        $.template_for_start,
+        $._template_for_start,
         optional($._template),
-        $.template_for_end,
+        $._template_for_end,
       ),
 
-      template_for_start: $ => seq(
-        $.template_directive_start,
+      _template_for_start: $ => seq(
+        $._template_directive_start,
         optional($.strip_marker),
         "for",
-        $.identifier,
-        optional(seq(",", $.identifier)),
+        field('target', $.identifier),
+        optional(seq(",", field('targetValue', $.identifier))),
         "in",
-        $.expression,
+        field('iter', $.expression),
         optional($.strip_marker),
-        $.template_directive_end
+        $._template_directive_end
       ),
 
-      template_for_end: $ => seq(
-        $.template_directive_start,
+      _template_for_end: $ => seq(
+        $._template_directive_start,
         optional($.strip_marker),
         "endfor",
         optional($.strip_marker),
-        $.template_directive_end
+        $._template_directive_end
       ),
 
       template_if: $ => seq(
-        $.template_if_intro,
-        optional($._template),
-        optional(seq($.template_else_intro, optional($._template))),
-        $.template_if_end,
+        $._template_if_intro,
+        optional(field('body', $._template)),
+        optional(seq($._template_else_intro, optional(field('alternative', $._template)))),
+        $._template_if_end,
       ),
 
-      template_if_intro: $ => seq(
-        $.template_directive_start,
+      _template_if_intro: $ => seq(
+        $._template_directive_start,
         optional($.strip_marker),
         "if",
-        $.expression,
+        field('condition', $.expression),
         optional($.strip_marker),
-        $.template_directive_end
+        $._template_directive_end
       ),
 
-      template_else_intro: $ => seq(
-        $.template_directive_start,
+      _template_else_intro: $ => seq(
+        $._template_directive_start,
         optional($.strip_marker),
         "else",
         optional($.strip_marker),
-        $.template_directive_end
+        $._template_directive_end
       ),
 
-      template_if_end: $ => seq(
-        $.template_directive_start,
+      _template_if_end: $ => seq(
+        $._template_directive_start,
         optional($.strip_marker),
         "endif",
         optional($.strip_marker),
-        $.template_directive_end
+        $._template_directive_end
       ),
 
       // http://stackoverflow.com/questions/13014947/regex-to-match-a-c-style-multiline-comment/36328890#36328890
