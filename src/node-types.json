@@ -906,16 +906,6 @@
           }
         ]
       }
-    },
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "strip_marker",
-          "named": true
-        }
-      ]
     }
   },
   {
@@ -968,16 +958,6 @@
           }
         ]
       }
-    },
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "strip_marker",
-          "named": true
-        }
-      ]
     }
   },
   {
@@ -994,16 +974,6 @@
           }
         ]
       }
-    },
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "strip_marker",
-          "named": true
-        }
-      ]
     }
   },
   {
@@ -1271,10 +1241,6 @@
   },
   {
     "type": "null_lit",
-    "named": true
-  },
-  {
-    "type": "strip_marker",
     "named": true
   },
   {

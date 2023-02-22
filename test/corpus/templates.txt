@@ -153,13 +153,11 @@ EOF
                 (expression
                   (variable_expr
                     (identifier)))
-                (strip_marker)
                 (template_literal)
                 (template_interpolation
                   (expression
                     (variable_expr
-                      (identifier))))
-                (strip_marker)))))))))
+                      (identifier))))))))))))
 
 ================================================================================
 empty heredoc template
@@ -268,12 +266,10 @@ foo = "hello ${~ "world" ~} hello"
           (quoted_template
             (template_literal)
             (template_interpolation
-              (strip_marker)
               (expression
                 (literal_value
                   (string_lit
-                    (template_literal))))
-              (strip_marker))
+                    (template_literal)))))
             (template_literal)))))))
 
 ================================================================================
@@ -518,23 +514,15 @@ EOF
                     (expression
                       (variable_expr
                         (identifier)))))
-                (strip_marker)
                 (template_literal)
                 (template_directive
                   (template_if
-                    (strip_marker)
                     (expression
                       (variable_expr
                         (identifier)))
-                    (strip_marker)
                     (template_literal)
-                    (strip_marker)
-                    (strip_marker)
-                    (template_literal)
-                    (strip_marker)
-                    (strip_marker)))
-                (template_literal)
-                (strip_marker)))))))))
+                    (template_literal)))
+                (template_literal)))))))))
 
 ================================================================================
 template parenthesis in heredoc for directive with nested if 2
@@ -565,19 +553,11 @@ EOF
                     (expression
                       (variable_expr
                         (identifier)))))
-                (strip_marker)
                 (template_literal)
                 (template_directive
                   (template_if
-                    (strip_marker)
                     (expression
                       (variable_expr
                         (identifier)))
-                    (strip_marker)
                     (template_literal)
-                    (strip_marker)
-                    (strip_marker)
-                    (template_literal)
-                    (strip_marker)
-                    (strip_marker)))
-                (strip_marker)))))))))
+                    (template_literal)))))))))))

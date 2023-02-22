@@ -281,7 +281,7 @@ module.exports = function make_grammar(dialect) {
 
       _heredoc_start: $ => choice('<<', '<<-'),
 
-      strip_marker: $ => '~',
+      _strip_marker: $ => '~',
 
       _template: $ => repeat1(choice(
         $.template_interpolation,
@@ -295,9 +295,9 @@ module.exports = function make_grammar(dialect) {
 
       template_interpolation: $ => seq(
         $._template_interpolation_start,
-        optional($.strip_marker),
+        optional($._strip_marker),
         optional(field('expr', $.expression)),
-        optional($.strip_marker),
+        optional($._strip_marker),
         $._template_interpolation_end,
       ),
 
@@ -314,21 +314,21 @@ module.exports = function make_grammar(dialect) {
 
       _template_for_start: $ => seq(
         $._template_directive_start,
-        optional($.strip_marker),
+        optional($._strip_marker),
         "for",
         field('target', $.identifier),
         optional(seq(",", field('target', $.identifier))),
         "in",
         field('iter', $.expression),
-        optional($.strip_marker),
+        optional($._strip_marker),
         $._template_directive_end
       ),
 
       _template_for_end: $ => seq(
         $._template_directive_start,
-        optional($.strip_marker),
+        optional($._strip_marker),
         "endfor",
-        optional($.strip_marker),
+        optional($._strip_marker),
         $._template_directive_end
       ),
 
@@ -341,26 +341,26 @@ module.exports = function make_grammar(dialect) {
 
       _template_if_intro: $ => seq(
         $._template_directive_start,
-        optional($.strip_marker),
+        optional($._strip_marker),
         "if",
         field('condition', $.expression),
-        optional($.strip_marker),
+        optional($._strip_marker),
         $._template_directive_end
       ),
 
       _template_else_intro: $ => seq(
         $._template_directive_start,
-        optional($.strip_marker),
+        optional($._strip_marker),
         "else",
-        optional($.strip_marker),
+        optional($._strip_marker),
         $._template_directive_end
       ),
 
       _template_if_end: $ => seq(
         $._template_directive_start,
-        optional($.strip_marker),
+        optional($._strip_marker),
         "endif",
-        optional($.strip_marker),
+        optional($._strip_marker),
         $._template_directive_end
       ),
 
