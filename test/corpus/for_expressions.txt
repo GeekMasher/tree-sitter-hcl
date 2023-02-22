@@ -10,24 +10,19 @@ foo = [for v in ["a", "b"]: v]
   (body
     (attribute
       (identifier)
-      (expression
-        (for_expr
-          (for_tuple_expr
-            (identifier)
-            (expression
-              (collection_value
-                (tuple
-                  (expression
-                    (literal_value
-                      (string_lit
-                        (template_literal))))
-                  (expression
-                    (literal_value
-                      (string_lit
-                        (template_literal)))))))
-            (expression
-              (variable_expr
-                (identifier)))))))))
+      (for_expr
+        (for_tuple_expr
+          (identifier)
+          (collection_value
+            (tuple
+              (literal_value
+                (string_lit
+                  (template_literal)))
+              (literal_value
+                (string_lit
+                  (template_literal)))))
+          (variable_expr
+            (identifier)))))))
 
 ================================================================================
 for tuple expression with index
@@ -41,25 +36,20 @@ foo = [for i, v in ["a", "b"]: i]
   (body
     (attribute
       (identifier)
-      (expression
-        (for_expr
-          (for_tuple_expr
-            (identifier)
-            (identifier)
-            (expression
-              (collection_value
-                (tuple
-                  (expression
-                    (literal_value
-                      (string_lit
-                        (template_literal))))
-                  (expression
-                    (literal_value
-                      (string_lit
-                        (template_literal)))))))
-            (expression
-              (variable_expr
-                (identifier)))))))))
+      (for_expr
+        (for_tuple_expr
+          (identifier)
+          (identifier)
+          (collection_value
+            (tuple
+              (literal_value
+                (string_lit
+                  (template_literal)))
+              (literal_value
+                (string_lit
+                  (template_literal)))))
+          (variable_expr
+            (identifier)))))))
 
 ================================================================================
 for tuple expression with predicate
@@ -73,35 +63,27 @@ foo = [for i, v in ["a", "b", "c"]: v if pred(i)]
   (body
     (attribute
       (identifier)
-      (expression
-        (for_expr
-          (for_tuple_expr
+      (for_expr
+        (for_tuple_expr
+          (identifier)
+          (identifier)
+          (collection_value
+            (tuple
+              (literal_value
+                (string_lit
+                  (template_literal)))
+              (literal_value
+                (string_lit
+                  (template_literal)))
+              (literal_value
+                (string_lit
+                  (template_literal)))))
+          (variable_expr
+            (identifier))
+          (function_call
             (identifier)
-            (identifier)
-            (expression
-              (collection_value
-                (tuple
-                  (expression
-                    (literal_value
-                      (string_lit
-                        (template_literal))))
-                  (expression
-                    (literal_value
-                      (string_lit
-                        (template_literal))))
-                  (expression
-                    (literal_value
-                      (string_lit
-                        (template_literal)))))))
-            (expression
-              (variable_expr
-                (identifier)))
-            (expression
-              (function_call
-                (identifier)
-                (expression
-                  (variable_expr
-                    (identifier)))))))))))
+            (variable_expr
+              (identifier))))))))
 
 ================================================================================
 for object expression
@@ -115,28 +97,22 @@ foo = {for i, v in ["a", "b"]: v => i}
   (body
     (attribute
       (identifier)
-      (expression
-        (for_expr
-          (for_object_expr
-            (identifier)
-            (identifier)
-            (expression
-              (collection_value
-                (tuple
-                  (expression
-                    (literal_value
-                      (string_lit
-                        (template_literal))))
-                  (expression
-                    (literal_value
-                      (string_lit
-                        (template_literal)))))))
-            (expression
-              (variable_expr
-                (identifier)))
-            (expression
-              (variable_expr
-                (identifier)))))))))
+      (for_expr
+        (for_object_expr
+          (identifier)
+          (identifier)
+          (collection_value
+            (tuple
+              (literal_value
+                (string_lit
+                  (template_literal)))
+              (literal_value
+                (string_lit
+                  (template_literal)))))
+          (variable_expr
+            (identifier))
+          (variable_expr
+            (identifier)))))))
 
 ================================================================================
 for object expression 2
@@ -150,26 +126,20 @@ foo = {for i, v in ["a", "b"]: v => i...}
   (body
     (attribute
       (identifier)
-      (expression
-        (for_expr
-          (for_object_expr
-            (identifier)
-            (identifier)
-            (expression
-              (collection_value
-                (tuple
-                  (expression
-                    (literal_value
-                      (string_lit
-                        (template_literal))))
-                  (expression
-                    (literal_value
-                      (string_lit
-                        (template_literal)))))))
-            (expression
-              (variable_expr
-                (identifier)))
-            (expression
-              (variable_expr
-                (identifier)))
-            (ellipsis)))))))
+      (for_expr
+        (for_object_expr
+          (identifier)
+          (identifier)
+          (collection_value
+            (tuple
+              (literal_value
+                (string_lit
+                  (template_literal)))
+              (literal_value
+                (string_lit
+                  (template_literal)))))
+          (variable_expr
+            (identifier))
+          (variable_expr
+            (identifier))
+          (ellipsis))))))

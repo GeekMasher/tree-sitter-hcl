@@ -46,7 +46,7 @@ module.exports = function make_grammar(dialect) {
       attribute: $ => seq(
         field('key', $.identifier),
         '=',
-        field('val', $.expression),
+        field('val', $._expression),
       ),
 
       block: $ => seq(
@@ -65,7 +65,7 @@ module.exports = function make_grammar(dialect) {
         repeat(choice(/\p{ID_Continue}/, '-')),
       )),
 
-      expression: $ => prec.right(choice(
+      _expression: $ => prec.right(choice(
         $._expr_term,
         $.conditional,
       )),
@@ -84,7 +84,7 @@ module.exports = function make_grammar(dialect) {
         seq($._expr_term, $.index),
         seq($._expr_term, $.get_attr),
         seq($._expr_term, $.splat),
-        seq('(', $.expression, ')'),
+        seq('(', $._expression, ')'),
       ),
 
       literal_value: $ => choice(
@@ -127,10 +127,10 @@ module.exports = function make_grammar(dialect) {
       _tuple_end: $ => ']',
 
       _tuple_elems: $ => seq(
-        field('element', $.expression),
+        field('element', $._expression),
         repeat(seq(
           $._comma,
-          field('element', $.expression),
+          field('element', $._expression),
         )),
         optional($._comma),
       ),
@@ -154,14 +154,14 @@ module.exports = function make_grammar(dialect) {
       ),
 
       object_elem: $ => seq(
-        field("key", $.expression),
+        field("key", $._expression),
         choice('=', ':'),
-        field("val", $.expression),
+        field("val", $._expression),
       ),
 
       index: $ => choice($._new_index, $._legacy_index),
 
-      _new_index: $ => seq('[', field('index', $.expression), ']'),
+      _new_index: $ => seq('[', field('index', $._expression), ']'),
       _legacy_index: $ => seq('.', field('index', /[0-9]+/)),
 
       get_attr: $ => seq('.', $.identifier),
@@ -183,7 +183,7 @@ module.exports = function make_grammar(dialect) {
       for_tuple_expr: $ => seq(
         $._tuple_start,
         $._for_intro,
-        field('expr', $.expression),
+        field('expr', $._expression),
         optional($._for_cond),
         $._tuple_end,
       ),
@@ -191,9 +191,9 @@ module.exports = function make_grammar(dialect) {
       for_object_expr: $ => seq(
         $._object_start,
         $._for_intro,
-        field('key', $.expression),
+        field('key', $._expression),
         '=>',
-        field('val', $.expression),
+        field('val', $._expression),
         optional($.ellipsis),
         optional($._for_cond),
         $._object_end,
@@ -204,13 +204,13 @@ module.exports = function make_grammar(dialect) {
         field('target', $.identifier),
         optional(seq(',', field('target', $.identifier))),
         'in',
-        field('iter', $.expression),
+        field('iter', $._expression),
         ':',
       ),
 
       _for_cond: $ => seq(
         'if',
-        field('condition', $.expression),
+        field('condition', $._expression),
       ),
 
       variable_expr: $ => prec.right(field('name', $.identifier)),
@@ -226,19 +226,19 @@ module.exports = function make_grammar(dialect) {
       _function_call_end: $ => ')',
 
       _function_arguments: $ => prec.right(seq(
-        field('argument', $.expression),
-        repeat(seq($._comma, field('argument', $.expression,))),
+        field('argument', $._expression),
+        repeat(seq($._comma, field('argument', $._expression,))),
         optional(choice($._comma, $.ellipsis)),
       )),
 
       ellipsis: $ => token('...'),
 
       conditional: $ => prec.left(seq(
-        field('condition', $.expression),
+        field('condition', $._expression),
         '?',
-        field('body', $.expression),
+        field('body', $._expression),
         ':',
-        field('alternative', $.expression),
+        field('alternative', $._expression),
       )),
 
       operation: $ => choice($.unary_operation, $.binary_operation),
@@ -296,7 +296,7 @@ module.exports = function make_grammar(dialect) {
       template_interpolation: $ => seq(
         $._template_interpolation_start,
         optional($._strip_marker),
-        optional(field('expr', $.expression)),
+        optional(field('expr', $._expression)),
         optional($._strip_marker),
         $._template_interpolation_end,
       ),
@@ -319,7 +319,7 @@ module.exports = function make_grammar(dialect) {
         field('target', $.identifier),
         optional(seq(",", field('target', $.identifier))),
         "in",
-        field('iter', $.expression),
+        field('iter', $._expression),
         optional($._strip_marker),
         $._template_directive_end
       ),
@@ -343,7 +343,7 @@ module.exports = function make_grammar(dialect) {
         $._template_directive_start,
         optional($._strip_marker),
         "if",
-        field('condition', $.expression),
+        field('condition', $._expression),
         optional($._strip_marker),
         $._template_directive_end
       ),

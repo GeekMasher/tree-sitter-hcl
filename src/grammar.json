@@ -58,7 +58,7 @@
           "name": "val",
           "content": {
             "type": "SYMBOL",
-            "name": "expression"
+            "name": "_expression"
           }
         }
       ]
@@ -165,7 +165,7 @@
         ]
       }
     },
-    "expression": {
+    "_expression": {
       "type": "PREC_RIGHT",
       "value": 0,
       "content": {
@@ -261,7 +261,7 @@
             },
             {
               "type": "SYMBOL",
-              "name": "expression"
+              "name": "_expression"
             },
             {
               "type": "STRING",
@@ -417,7 +417,7 @@
           "name": "element",
           "content": {
             "type": "SYMBOL",
-            "name": "expression"
+            "name": "_expression"
           }
         },
         {
@@ -434,7 +434,7 @@
                 "name": "element",
                 "content": {
                   "type": "SYMBOL",
-                  "name": "expression"
+                  "name": "_expression"
                 }
               }
             ]
@@ -548,7 +548,7 @@
           "name": "key",
           "content": {
             "type": "SYMBOL",
-            "name": "expression"
+            "name": "_expression"
           }
         },
         {
@@ -569,7 +569,7 @@
           "name": "val",
           "content": {
             "type": "SYMBOL",
-            "name": "expression"
+            "name": "_expression"
           }
         }
       ]
@@ -599,7 +599,7 @@
           "name": "index",
           "content": {
             "type": "SYMBOL",
-            "name": "expression"
+            "name": "_expression"
           }
         },
         {
@@ -738,7 +738,7 @@
           "name": "expr",
           "content": {
             "type": "SYMBOL",
-            "name": "expression"
+            "name": "_expression"
           }
         },
         {
@@ -775,7 +775,7 @@
           "name": "key",
           "content": {
             "type": "SYMBOL",
-            "name": "expression"
+            "name": "_expression"
           }
         },
         {
@@ -787,7 +787,7 @@
           "name": "val",
           "content": {
             "type": "SYMBOL",
-            "name": "expression"
+            "name": "_expression"
           }
         },
         {
@@ -869,7 +869,7 @@
           "name": "iter",
           "content": {
             "type": "SYMBOL",
-            "name": "expression"
+            "name": "_expression"
           }
         },
         {
@@ -890,7 +890,7 @@
           "name": "condition",
           "content": {
             "type": "SYMBOL",
-            "name": "expression"
+            "name": "_expression"
           }
         }
       ]
@@ -959,7 +959,7 @@
             "name": "argument",
             "content": {
               "type": "SYMBOL",
-              "name": "expression"
+              "name": "_expression"
             }
           },
           {
@@ -976,7 +976,7 @@
                   "name": "argument",
                   "content": {
                     "type": "SYMBOL",
-                    "name": "expression"
+                    "name": "_expression"
                   }
                 }
               ]
@@ -1024,7 +1024,7 @@
             "name": "condition",
             "content": {
               "type": "SYMBOL",
-              "name": "expression"
+              "name": "_expression"
             }
           },
           {
@@ -1036,7 +1036,7 @@
             "name": "body",
             "content": {
               "type": "SYMBOL",
-              "name": "expression"
+              "name": "_expression"
             }
           },
           {
@@ -1048,7 +1048,7 @@
             "name": "alternative",
             "content": {
               "type": "SYMBOL",
-              "name": "expression"
+              "name": "_expression"
             }
           }
         ]
@@ -1504,7 +1504,7 @@
               "name": "expr",
               "content": {
                 "type": "SYMBOL",
-                "name": "expression"
+                "name": "_expression"
               }
             },
             {
@@ -1637,7 +1637,7 @@
           "name": "iter",
           "content": {
             "type": "SYMBOL",
-            "name": "expression"
+            "name": "_expression"
           }
         },
         {
@@ -1789,7 +1789,7 @@
           "name": "condition",
           "content": {
             "type": "SYMBOL",
-            "name": "expression"
+            "name": "_expression"
           }
         },
         {

@@ -10,9 +10,8 @@ foo = bar()
   (body
     (attribute
       (identifier)
-      (expression
-        (function_call
-          (identifier))))))
+      (function_call
+        (identifier)))))
 
 ================================================================================
 unary function call
@@ -26,13 +25,11 @@ foo = bar("foo")
   (body
     (attribute
       (identifier)
-      (expression
-        (function_call
-          (identifier)
-          (expression
-            (literal_value
-              (string_lit
-                (template_literal)))))))))
+      (function_call
+        (identifier)
+        (literal_value
+          (string_lit
+            (template_literal)))))))
 
 ================================================================================
 variadic function call
@@ -46,13 +43,11 @@ foo = bar(x...)
   (body
     (attribute
       (identifier)
-      (expression
-        (function_call
-          (identifier)
-          (expression
-            (variable_expr
-              (identifier)))
-          (ellipsis))))))
+      (function_call
+        (identifier)
+        (variable_expr
+          (identifier))
+        (ellipsis)))))
 
 ================================================================================
 multiline function call
@@ -70,18 +65,14 @@ foo = bar(
   (body
     (attribute
       (identifier)
-      (expression
-        (function_call
-          (identifier)
-          (expression
-            (literal_value
-              (string_lit
-                (template_literal))))
-          (expression
-            (literal_value
-              (string_lit
-                (template_literal))))
-          (expression
-            (literal_value
-              (string_lit
-                (template_literal)))))))))
+      (function_call
+        (identifier)
+        (literal_value
+          (string_lit
+            (template_literal)))
+        (literal_value
+          (string_lit
+            (template_literal)))
+        (literal_value
+          (string_lit
+            (template_literal)))))))
