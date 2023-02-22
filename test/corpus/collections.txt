@@ -22,9 +22,7 @@ foo = [1, 2, "foo"]
             (expression
               (literal_value
                 (string_lit
-                  (quoted_template_start)
-                  (template_literal)
-                  (quoted_template_end))))))))))
+                  (template_literal))))))))))
 
 ================================================================================
 multiline tuple
@@ -54,9 +52,7 @@ foo = [
             (expression
               (literal_value
                 (string_lit
-                  (quoted_template_start)
-                  (template_literal)
-                  (quoted_template_end))))))))))
+                  (template_literal))))))))))
 
 ================================================================================
 empty tuple
@@ -117,15 +113,11 @@ foo = {1: 2, "foo"="bar"}
               (expression
                 (literal_value
                   (string_lit
-                    (quoted_template_start)
-                    (template_literal)
-                    (quoted_template_end))))
+                    (template_literal))))
               (expression
                 (literal_value
                   (string_lit
-                    (quoted_template_start)
-                    (template_literal)
-                    (quoted_template_end)))))))))))
+                    (template_literal)))))))))))
 
 ================================================================================
 multiline object
@@ -156,15 +148,11 @@ foo = {
               (expression
                 (literal_value
                   (string_lit
-                    (quoted_template_start)
-                    (template_literal)
-                    (quoted_template_end))))
+                    (template_literal))))
               (expression
                 (literal_value
                   (string_lit
-                    (quoted_template_start)
-                    (template_literal)
-                    (quoted_template_end)))))))))))
+                    (template_literal)))))))))))
 
 ================================================================================
 empty object
@@ -228,15 +216,11 @@ foo = { 1: 2,
               (expression
                 (literal_value
                   (string_lit
-                    (quoted_template_start)
-                    (template_literal)
-                    (quoted_template_end))))
+                    (template_literal))))
               (expression
                 (literal_value
                   (string_lit
-                    (quoted_template_start)
-                    (template_literal)
-                    (quoted_template_end)))))))))))
+                    (template_literal)))))))))))
 
 ================================================================================
 complex object
@@ -263,9 +247,7 @@ foo = {
               (expression
                 (literal_value
                   (string_lit
-                    (quoted_template_start)
-                    (template_literal)
-                    (quoted_template_end)))))
+                    (template_literal)))))
             (object_elem
               (expression
                 (variable_expr
@@ -273,9 +255,7 @@ foo = {
               (expression
                 (literal_value
                   (string_lit
-                    (quoted_template_start)
-                    (template_literal)
-                    (quoted_template_end)))))))))))
+                    (template_literal)))))))))))
 
 ================================================================================
 complex from real world
@@ -315,9 +295,7 @@ worker_groups = [
                     (expression
                       (literal_value
                         (string_lit
-                          (quoted_template_start)
-                          (template_literal)
-                          (quoted_template_end)))))
+                          (template_literal)))))
                   (object_elem
                     (expression
                       (variable_expr
@@ -325,9 +303,7 @@ worker_groups = [
                     (expression
                       (literal_value
                         (string_lit
-                          (quoted_template_start)
-                          (template_literal)
-                          (quoted_template_end)))))
+                          (template_literal)))))
                   (object_elem
                     (expression
                       (variable_expr
@@ -359,9 +335,7 @@ worker_groups = [
                     (expression
                       (literal_value
                         (string_lit
-                          (quoted_template_start)
-                          (template_literal)
-                          (quoted_template_end)))))
+                          (template_literal)))))
                   (object_elem
                     (expression
                       (variable_expr
@@ -369,9 +343,7 @@ worker_groups = [
                     (expression
                       (literal_value
                         (string_lit
-                          (quoted_template_start)
-                          (template_literal)
-                          (quoted_template_end)))))
+                          (template_literal)))))
                   (object_elem
                     (expression
                       (variable_expr

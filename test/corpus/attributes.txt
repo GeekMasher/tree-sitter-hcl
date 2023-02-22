@@ -13,9 +13,7 @@ foo = "bar"
       (expression
         (literal_value
           (string_lit
-            (quoted_template_start)
-            (template_literal)
-            (quoted_template_end)))))))
+            (template_literal)))))))
 
 ================================================================================
 attribute with variable

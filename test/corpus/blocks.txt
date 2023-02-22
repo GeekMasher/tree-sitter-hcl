@@ -38,9 +38,7 @@ block_1 "" {
   (body
     (block
       (identifier)
-      (string_lit
-        (quoted_template_start)
-        (quoted_template_end)))))
+      (string_lit))))
 
 ================================================================================
 block with attribute
@@ -57,22 +55,16 @@ block_1 "strlit1" "strlit2" {
     (block
       (identifier)
       (string_lit
-        (quoted_template_start)
-        (template_literal)
-        (quoted_template_end))
+        (template_literal))
       (string_lit
-        (quoted_template_start)
-        (template_literal)
-        (quoted_template_end))
+        (template_literal))
       (body
         (attribute
           (identifier)
           (expression
             (literal_value
               (string_lit
-                (quoted_template_start)
-                (template_literal)
-                (quoted_template_end)))))))))
+                (template_literal)))))))))
 
 ================================================================================
 nested block
@@ -157,11 +149,7 @@ locals { timestamp = regex_replace(timestamp(), "[- TZ:]", "") }
               (expression
                 (literal_value
                   (string_lit
-                    (quoted_template_start)
-                    (template_literal)
-                    (quoted_template_end))))
+                    (template_literal))))
               (expression
                 (literal_value
-                  (string_lit
-                    (quoted_template_start)
-                    (quoted_template_end)))))))))))
+                  (string_lit))))))))))
