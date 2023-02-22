@@ -31,13 +31,14 @@ foo = ( true ? false : true ) ? "yes" : "no"
     (attribute
       (identifier)
       (conditional
-        (conditional
-          (literal_value
-            (bool_lit))
-          (literal_value
-            (bool_lit))
-          (literal_value
-            (bool_lit)))
+        (parenthesized_expr
+          (conditional
+            (literal_value
+              (bool_lit))
+            (literal_value
+              (bool_lit))
+            (literal_value
+              (bool_lit))))
         (literal_value
           (string_lit
             (template_literal)))

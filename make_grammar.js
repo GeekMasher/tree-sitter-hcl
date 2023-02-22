@@ -84,8 +84,10 @@ module.exports = function make_grammar(dialect) {
         $.index_expr,
         $.get_attr_expr,
         $.splat_expr,
-        seq('(', $._expression, ')'),
+        $.parenthesized_expr
       ),
+
+      parenthesized_expr: $ => seq('(', $._expression, ')'),
 
       index_expr: $ => seq(field('expr', $._expr_term), $._index),
       get_attr_expr: $ => seq(field('expr', $._expr_term), $._get_attr),
