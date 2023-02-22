@@ -27,9 +27,8 @@ foo = bar("foo")
       (identifier)
       (function_call
         (identifier)
-        (literal_value
-          (string_lit
-            (template_literal)))))))
+        (string_lit
+          (template_literal))))))
 
 ================================================================================
 variadic function call
@@ -67,12 +66,9 @@ foo = bar(
       (identifier)
       (function_call
         (identifier)
-        (literal_value
-          (string_lit
-            (template_literal)))
-        (literal_value
-          (string_lit
-            (template_literal)))
-        (literal_value
-          (string_lit
-            (template_literal)))))))
+        (string_lit
+          (template_literal))
+        (string_lit
+          (template_literal))
+        (string_lit
+          (template_literal))))))

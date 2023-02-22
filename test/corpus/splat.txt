@@ -30,8 +30,7 @@ foo = bar[1]
       (index_expr
         (variable_expr
           (identifier))
-        (literal_value
-          (numeric_lit))))))
+        (numeric_lit)))))
 
 ================================================================================
 attr splat
@@ -61,8 +60,7 @@ foo = bar.*.foo[1]
           splat: (attr_splat
             element: (get_attr
               key: (identifier))))
-        index: (literal_value
-          (numeric_lit))))))
+        index: (numeric_lit)))))
 
 ================================================================================
 full splat
@@ -92,8 +90,7 @@ foo = bar[*].foo[1]
           (get_attr
             (identifier))
           (index
-            (literal_value
-              (numeric_lit))))))))
+            (numeric_lit)))))))
 
 ================================================================================
 full splat repeated
