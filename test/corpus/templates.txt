@@ -13,9 +13,9 @@ foo = "${ var.bar }"
       (template_expr
         (quoted_template
           (template_interpolation
-            (variable_expr
-              (identifier))
-            (get_attr
+            (get_attr_expr
+              (variable_expr
+                (identifier))
               (identifier))))))))
 
 ================================================================================
@@ -222,9 +222,9 @@ foo = "p-${ foo("v-${a.b}") }"
                 (quoted_template
                   (template_literal)
                   (template_interpolation
-                    (variable_expr
-                      (identifier))
-                    (get_attr
+                    (get_attr_expr
+                      (variable_expr
+                        (identifier))
                       (identifier))))))))))))
 
 ================================================================================
@@ -263,14 +263,14 @@ foo = "${ {a=b}[a] }"
       (template_expr
         (quoted_template
           (template_interpolation
-            (collection_value
-              (object
-                (object_elem
-                  (variable_expr
-                    (identifier))
-                  (variable_expr
-                    (identifier)))))
-            (index
+            (index_expr
+              (collection_value
+                (object
+                  (object_elem
+                    (variable_expr
+                      (identifier))
+                    (variable_expr
+                      (identifier)))))
               (variable_expr
                 (identifier)))))))))
 

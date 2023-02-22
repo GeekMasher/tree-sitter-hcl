@@ -10,9 +10,9 @@ foo = bar.baz
   (body
     (attribute
       (identifier)
-      (variable_expr
-        (identifier))
-      (get_attr
+      (get_attr_expr
+        (variable_expr
+          (identifier))
         (identifier)))))
 
 ================================================================================
@@ -27,9 +27,9 @@ foo = bar[1]
   (body
     (attribute
       (identifier)
-      (variable_expr
-        (identifier))
-      (index
+      (index_expr
+        (variable_expr
+          (identifier))
         (literal_value
           (numeric_lit))))))
 
@@ -38,25 +38,38 @@ attr splat
 ================================================================================
 
 foo = bar.*.foo
+foo = bar.*.foo[1]
 
 --------------------------------------------------------------------------------
 
 (config_file
   (body
     (attribute
-      (identifier)
-      (variable_expr
-        (identifier))
-      (splat
-        (attr_splat
-          (get_attr
-            (identifier)))))))
+      key: (identifier)
+      val: (splat_expr
+        expr: (variable_expr
+          name: (identifier))
+        splat: (attr_splat
+          element: (get_attr
+            key: (identifier)))))
+    (attribute
+      key: (identifier)
+      val: (index_expr
+        expr: (splat_expr
+          expr: (variable_expr
+            name: (identifier))
+          splat: (attr_splat
+            element: (get_attr
+              key: (identifier))))
+        index: (literal_value
+          (numeric_lit))))))
 
 ================================================================================
 full splat
 ================================================================================
 
 foo = bar[*].foo
+foo = bar[*].foo[1]
 
 --------------------------------------------------------------------------------
 
@@ -64,12 +77,23 @@ foo = bar[*].foo
   (body
     (attribute
       (identifier)
-      (variable_expr
-        (identifier))
-      (splat
+      (splat_expr
+        (variable_expr
+          (identifier))
         (full_splat
           (get_attr
-            (identifier)))))))
+            (identifier)))))
+    (attribute
+      (identifier)
+      (splat_expr
+        (variable_expr
+          (identifier))
+        (full_splat
+          (get_attr
+            (identifier))
+          (index
+            (literal_value
+              (numeric_lit))))))))
 
 ================================================================================
 full splat repeated
@@ -83,11 +107,11 @@ foo = bar[*][*].a.b.c[d]
   (body
     (attribute
       (identifier)
-      (variable_expr
-        (identifier))
-      (splat
-        (full_splat))
-      (splat
+      (splat_expr
+        (splat_expr
+          (variable_expr
+            (identifier))
+          (full_splat))
         (full_splat
           (get_attr
             (identifier))

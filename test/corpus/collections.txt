@@ -276,11 +276,11 @@ worker_groups = [
                   (identifier))
                 (collection_value
                   (tuple
-                    (variable_expr
-                      (identifier))
-                    (get_attr
-                      (identifier))
-                    (get_attr
+                    (get_attr_expr
+                      (get_attr_expr
+                        (variable_expr
+                          (identifier))
+                        (identifier))
                       (identifier)))))))
           (collection_value
             (object
@@ -301,11 +301,11 @@ worker_groups = [
                   (identifier))
                 (collection_value
                   (tuple
-                    (variable_expr
-                      (identifier))
-                    (get_attr
-                      (identifier))
-                    (get_attr
+                    (get_attr_expr
+                      (get_attr_expr
+                        (variable_expr
+                          (identifier))
+                        (identifier))
                       (identifier)))))
               (object_elem
                 (variable_expr

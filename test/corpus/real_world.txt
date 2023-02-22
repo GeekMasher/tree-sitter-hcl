@@ -19,38 +19,38 @@ provider "kubernetes" {
       (body
         (attribute
           (identifier)
-          (variable_expr
-            (identifier))
-          (get_attr
-            (identifier))
-          (get_attr
-            (identifier))
-          (get_attr
+          (get_attr_expr
+            (get_attr_expr
+              (get_attr_expr
+                (variable_expr
+                  (identifier))
+                (identifier))
+              (identifier))
             (identifier)))
         (attribute
           (identifier)
-          (variable_expr
-            (identifier))
-          (get_attr
-            (identifier))
-          (get_attr
-            (identifier))
-          (get_attr
+          (get_attr_expr
+            (get_attr_expr
+              (get_attr_expr
+                (variable_expr
+                  (identifier))
+                (identifier))
+              (identifier))
             (identifier)))
         (attribute
           (identifier)
           (function_call
             (identifier)
-            (variable_expr
-              (identifier))
-            (get_attr
-              (identifier))
-            (get_attr
-              (identifier))
-            (get_attr
-              (identifier))
-            (index)
-            (get_attr
+            (get_attr_expr
+              (index_expr
+                (get_attr_expr
+                  (get_attr_expr
+                    (get_attr_expr
+                      (variable_expr
+                        (identifier))
+                      (identifier))
+                    (identifier))
+                  (identifier)))
               (identifier))))))))
 
 ================================================================================
@@ -109,48 +109,48 @@ resource "azurerm_storage_blob" "proxy_cert" {
           (conditional
             (operation
               (binary_operation
-                (variable_expr
-                  (identifier))
-                (get_attr
+                (get_attr_expr
+                  (variable_expr
+                    (identifier))
                   (identifier))
                 (literal_value
                   (string_lit))))
-            (variable_expr
+            (get_attr_expr
+              (index_expr
+                (get_attr_expr
+                  (variable_expr
+                    (identifier))
+                  (identifier))
+                (literal_value
+                  (numeric_lit)))
               (identifier))
-            (get_attr
-              (identifier))
-            (index
-              (literal_value
-                (numeric_lit)))
-            (get_attr
-              (identifier))
-            (variable_expr
-              (identifier))
-            (get_attr
+            (get_attr_expr
+              (variable_expr
+                (identifier))
               (identifier))))
         (attribute
           (identifier)
           (conditional
             (operation
               (binary_operation
-                (variable_expr
-                  (identifier))
-                (get_attr
+                (get_attr_expr
+                  (variable_expr
+                    (identifier))
                   (identifier))
                 (literal_value
                   (string_lit))))
-            (variable_expr
+            (get_attr_expr
+              (index_expr
+                (get_attr_expr
+                  (variable_expr
+                    (identifier))
+                  (identifier))
+                (literal_value
+                  (numeric_lit)))
               (identifier))
-            (get_attr
-              (identifier))
-            (index
-              (literal_value
-                (numeric_lit)))
-            (get_attr
-              (identifier))
-            (variable_expr
-              (identifier))
-            (get_attr
+            (get_attr_expr
+              (variable_expr
+                (identifier))
               (identifier))))))
     (block
       (identifier)
@@ -164,9 +164,9 @@ resource "azurerm_storage_blob" "proxy_cert" {
           (conditional
             (operation
               (binary_operation
-                (variable_expr
-                  (identifier))
-                (get_attr
+                (get_attr_expr
+                  (variable_expr
+                    (identifier))
                   (identifier))
                 (literal_value
                   (string_lit))))
@@ -176,15 +176,15 @@ resource "azurerm_storage_blob" "proxy_cert" {
               (numeric_lit))))
         (attribute
           (identifier)
-          (variable_expr
-            (identifier))
-          (get_attr
+          (get_attr_expr
+            (variable_expr
+              (identifier))
             (identifier)))
         (attribute
           (identifier)
-          (variable_expr
-            (identifier))
-          (get_attr
+          (get_attr_expr
+            (variable_expr
+              (identifier))
             (identifier)))
         (attribute
           (identifier)
@@ -203,9 +203,9 @@ resource "azurerm_storage_blob" "proxy_cert" {
           (conditional
             (operation
               (binary_operation
-                (variable_expr
-                  (identifier))
-                (get_attr
+                (get_attr_expr
+                  (variable_expr
+                    (identifier))
                   (identifier))
                 (literal_value
                   (string_lit))))
@@ -215,15 +215,15 @@ resource "azurerm_storage_blob" "proxy_cert" {
               (numeric_lit))))
         (attribute
           (identifier)
-          (variable_expr
-            (identifier))
-          (get_attr
+          (get_attr_expr
+            (variable_expr
+              (identifier))
             (identifier)))
         (attribute
           (identifier)
-          (variable_expr
-            (identifier))
-          (get_attr
+          (get_attr_expr
+            (variable_expr
+              (identifier))
             (identifier)))
         (attribute
           (identifier)
@@ -242,9 +242,9 @@ resource "azurerm_storage_blob" "proxy_cert" {
           (conditional
             (operation
               (binary_operation
-                (variable_expr
-                  (identifier))
-                (get_attr
+                (get_attr_expr
+                  (variable_expr
+                    (identifier))
                   (identifier))
                 (literal_value
                   (string_lit))))
@@ -254,32 +254,32 @@ resource "azurerm_storage_blob" "proxy_cert" {
               (numeric_lit))))
         (attribute
           (identifier)
-          (variable_expr
-            (identifier))
-          (get_attr
+          (get_attr_expr
+            (variable_expr
+              (identifier))
             (identifier)))
         (attribute
           (identifier)
-          (variable_expr
-            (identifier))
-          (get_attr
+          (get_attr_expr
+            (variable_expr
+              (identifier))
             (identifier)))
         (attribute
           (identifier)
-          (variable_expr
-            (identifier))
-          (get_attr
+          (get_attr_expr
+            (variable_expr
+              (identifier))
             (identifier)))
         (attribute
           (identifier)
-          (variable_expr
-            (identifier))
-          (get_attr
-            (identifier))
-          (index
-            (literal_value
-              (numeric_lit)))
-          (get_attr
+          (get_attr_expr
+            (index_expr
+              (get_attr_expr
+                (variable_expr
+                  (identifier))
+                (identifier))
+              (literal_value
+                (numeric_lit)))
             (identifier)))
         (attribute
           (identifier)
@@ -298,19 +298,19 @@ resource "azurerm_storage_blob" "proxy_cert" {
           (conditional
             (operation
               (binary_operation
-                (operation
-                  (binary_operation
-                    (operation
-                      (binary_operation
-                        (variable_expr
-                          (identifier))
-                        (get_attr
-                          (identifier))
-                        (literal_value
-                          (string_lit))))
-                    (variable_expr
-                      (identifier))))
-                (get_attr
+                (get_attr_expr
+                  (operation
+                    (binary_operation
+                      (operation
+                        (binary_operation
+                          (get_attr_expr
+                            (variable_expr
+                              (identifier))
+                            (identifier))
+                          (literal_value
+                            (string_lit))))
+                      (variable_expr
+                        (identifier))))
                   (identifier))
                 (literal_value
                   (string_lit))))
@@ -320,32 +320,32 @@ resource "azurerm_storage_blob" "proxy_cert" {
               (numeric_lit))))
         (attribute
           (identifier)
-          (variable_expr
-            (identifier))
-          (get_attr
+          (get_attr_expr
+            (variable_expr
+              (identifier))
             (identifier)))
         (attribute
           (identifier)
-          (variable_expr
-            (identifier))
-          (get_attr
+          (get_attr_expr
+            (variable_expr
+              (identifier))
             (identifier)))
         (attribute
           (identifier)
-          (variable_expr
-            (identifier))
-          (get_attr
+          (get_attr_expr
+            (variable_expr
+              (identifier))
             (identifier)))
         (attribute
           (identifier)
-          (variable_expr
-            (identifier))
-          (get_attr
-            (identifier))
-          (index
-            (literal_value
-              (numeric_lit)))
-          (get_attr
+          (get_attr_expr
+            (index_expr
+              (get_attr_expr
+                (variable_expr
+                  (identifier))
+                (identifier))
+              (literal_value
+                (numeric_lit)))
             (identifier)))
         (attribute
           (identifier)
@@ -367,17 +367,17 @@ private_key_pem = element(tls_private_key.server.*.private_key_pem, count.index)
       (identifier)
       (function_call
         (identifier)
-        (variable_expr
-          (identifier))
-        (get_attr
-          (identifier))
-        (splat
+        (splat_expr
+          (get_attr_expr
+            (variable_expr
+              (identifier))
+            (identifier))
           (attr_splat
             (get_attr
               (identifier))))
-        (variable_expr
-          (identifier))
-        (get_attr
+        (get_attr_expr
+          (variable_expr
+            (identifier))
           (identifier))))))
 
 ================================================================================
@@ -403,22 +403,22 @@ locals {
             (quoted_template
               (template_interpolation
                 (conditional
-                  (variable_expr
+                  (get_attr_expr
+                    (variable_expr
+                      (identifier))
                     (identifier))
-                  (get_attr
-                    (identifier))
-                  (variable_expr
-                    (identifier))
-                  (get_attr
-                    (identifier))
-                  (get_attr
-                    (identifier))
-                  (index
+                  (index_expr
+                    (get_attr_expr
+                      (get_attr_expr
+                        (variable_expr
+                          (identifier))
+                        (identifier))
+                      (identifier))
                     (literal_value
                       (numeric_lit)))
-                  (variable_expr
-                    (identifier))
-                  (get_attr
-                    (identifier))
-                  (get_attr
+                  (get_attr_expr
+                    (get_attr_expr
+                      (variable_expr
+                        (identifier))
+                      (identifier))
                     (identifier)))))))))))

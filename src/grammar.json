@@ -214,43 +214,16 @@
           "name": "operation"
         },
         {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "_expr_term"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "index"
-            }
-          ]
+          "type": "SYMBOL",
+          "name": "index_expr"
         },
         {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "_expr_term"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "get_attr"
-            }
-          ]
+          "type": "SYMBOL",
+          "name": "get_attr_expr"
         },
         {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "_expr_term"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "splat"
-            }
-          ]
+          "type": "SYMBOL",
+          "name": "splat_expr"
         },
         {
           "type": "SEQ",
@@ -268,6 +241,61 @@
               "value": ")"
             }
           ]
+        }
+      ]
+    },
+    "index_expr": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "expr",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_expr_term"
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_index"
+        }
+      ]
+    },
+    "get_attr_expr": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "expr",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_expr_term"
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_get_attr"
+        }
+      ]
+    },
+    "splat_expr": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "expr",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_expr_term"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "splat",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_splat"
+          }
         }
       ]
     },
@@ -574,7 +602,7 @@
         }
       ]
     },
-    "index": {
+    "_index": {
       "type": "CHOICE",
       "members": [
         {
@@ -586,6 +614,10 @@
           "name": "_legacy_index"
         }
       ]
+    },
+    "index": {
+      "type": "SYMBOL",
+      "name": "_index"
     },
     "_new_index": {
       "type": "SEQ",
@@ -625,7 +657,7 @@
         }
       ]
     },
-    "get_attr": {
+    "_get_attr": {
       "type": "SEQ",
       "members": [
         {
@@ -633,12 +665,20 @@
           "value": "."
         },
         {
-          "type": "SYMBOL",
-          "name": "identifier"
+          "type": "FIELD",
+          "name": "key",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
         }
       ]
     },
-    "splat": {
+    "get_attr": {
+      "type": "SYMBOL",
+      "name": "_get_attr"
+    },
+    "_splat": {
       "type": "CHOICE",
       "members": [
         {
@@ -664,17 +704,12 @@
           {
             "type": "REPEAT",
             "content": {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "SYMBOL",
-                  "name": "get_attr"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "index"
-                }
-              ]
+              "type": "FIELD",
+              "name": "element",
+              "content": {
+                "type": "SYMBOL",
+                "name": "get_attr"
+              }
             }
           }
         ]
@@ -693,17 +728,21 @@
           {
             "type": "REPEAT",
             "content": {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "SYMBOL",
-                  "name": "get_attr"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "index"
-                }
-              ]
+              "type": "FIELD",
+              "name": "element",
+              "content": {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "get_attr"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "index"
+                  }
+                ]
+              }
             }
           }
         ]

@@ -81,11 +81,15 @@ module.exports = function make_grammar(dialect) {
         $.function_call,
         $.for_expr,
         $.operation,
-        seq($._expr_term, $.index),
-        seq($._expr_term, $.get_attr),
-        seq($._expr_term, $.splat),
+        $.index_expr,
+        $.get_attr_expr,
+        $.splat_expr,
         seq('(', $._expression, ')'),
       ),
+
+      index_expr: $ => seq(field('expr', $._expr_term), $._index),
+      get_attr_expr: $ => seq(field('expr', $._expr_term), $._get_attr),
+      splat_expr: $ => seq(field('expr', $._expr_term), field('splat', $._splat)),
 
       literal_value: $ => choice(
         $.numeric_lit,
@@ -159,23 +163,25 @@ module.exports = function make_grammar(dialect) {
         field("val", $._expression),
       ),
 
-      index: $ => choice($._new_index, $._legacy_index),
+      _index: $ => choice($._new_index, $._legacy_index),
+      index: $ => $._index,
 
       _new_index: $ => seq('[', field('index', $._expression), ']'),
       _legacy_index: $ => seq('.', field('index', /[0-9]+/)),
 
-      get_attr: $ => seq('.', $.identifier),
+      _get_attr: $ => seq('.', field('key', $.identifier)),
+      get_attr: $ => $._get_attr,
 
-      splat: $ => choice($.attr_splat, $.full_splat),
+      _splat: $ => choice($.attr_splat, $.full_splat),
 
       attr_splat: $ => prec.right(seq(
         '.*',
-        repeat(choice($.get_attr, $.index)),
+        repeat(field('element', $.get_attr)),
       )),
 
       full_splat: $ => prec.right(seq(
         '[*]',
-        repeat(choice($.get_attr, $.index)),
+        repeat(field('element', choice($.get_attr, $.index))),
       )),
 
       for_expr: $ => choice($.for_tuple_expr, $.for_object_expr),
