@@ -50,15 +50,15 @@ module.exports = function make_grammar(dialect) {
       ),
 
       block: $ => seq(
-        $.identifier,
-        repeat(choice($.string_lit, $.identifier)),
-        $.block_start,
+        field('type', $.identifier),
+        repeat(field('label', choice($.string_lit, $.identifier))),
+        $._block_start,
         optional($.body),
-        $.block_end,
+        $._block_end,
       ),
 
-      block_start: $ => '{',
-      block_end: $ => '}',
+      _block_start: $ => '{',
+      _block_end: $ => '}',
 
       identifier: $ => token(seq(
         choice(/\p{ID_Start}/, '_'),
@@ -118,13 +118,13 @@ module.exports = function make_grammar(dialect) {
       _comma: $ => ',',
 
       tuple: $ => seq(
-        $.tuple_start,
+        $._tuple_start,
         optional($._tuple_elems),
-        $.tuple_end,
+        $._tuple_end,
       ),
 
-      tuple_start: $ => '[',
-      tuple_end: $ => ']',
+      _tuple_start: $ => '[',
+      _tuple_end: $ => ']',
 
       _tuple_elems: $ => seq(
         $.expression,
@@ -136,13 +136,13 @@ module.exports = function make_grammar(dialect) {
       ),
 
       object: $ => seq(
-        $.object_start,
+        $._object_start,
         optional($._object_elems),
-        $.object_end,
+        $._object_end,
       ),
 
-      object_start: $ => '{',
-      object_end: $ => '}',
+      _object_start: $ => '{',
+      _object_end: $ => '}',
 
       _object_elems: $ => seq(
         $.object_elem,
@@ -159,10 +159,10 @@ module.exports = function make_grammar(dialect) {
         field("val", $.expression),
       ),
 
-      index: $ => choice($.new_index, $.legacy_index),
+      index: $ => choice($._new_index, $._legacy_index),
 
-      new_index: $ => seq('[', $.expression, ']'),
-      legacy_index: $ => seq('.', /[0-9]+/),
+      _new_index: $ => seq('[', field('index', $.expression), ']'),
+      _legacy_index: $ => seq('.', field('index', /[0-9]+/)),
 
       get_attr: $ => seq('.', $.identifier),
 
@@ -181,53 +181,53 @@ module.exports = function make_grammar(dialect) {
       for_expr: $ => choice($.for_tuple_expr, $.for_object_expr),
 
       for_tuple_expr: $ => seq(
-        $.tuple_start,
-        $.for_intro,
+        $._tuple_start,
+        $._for_intro,
         $.expression,
-        optional($.for_cond),
-        $.tuple_end,
+        optional($._for_cond),
+        $._tuple_end,
       ),
 
       for_object_expr: $ => seq(
-        $.object_start,
-        $.for_intro,
+        $._object_start,
+        $._for_intro,
         $.expression,
         '=>',
         $.expression,
         optional($.ellipsis),
-        optional($.for_cond),
-        $.object_end,
+        optional($._for_cond),
+        $._object_end,
       ),
 
-      for_intro: $ => seq(
+      _for_intro: $ => seq(
         'for',
-        $.identifier,
-        optional(seq(',', $.identifier)),
+        field('target', $.identifier),
+        optional(seq(',', field('target', $.identifier))),
         'in',
         field('iter', $.expression),
         ':',
       ),
 
-      for_cond: $ => seq(
+      _for_cond: $ => seq(
         'if',
         field('condition', $.expression),
       ),
 
-      variable_expr: $ => prec.right($.identifier),
+      variable_expr: $ => prec.right(field('name', $.identifier)),
 
       function_call: $ => seq(
         field('function', $.identifier),
         $._function_call_start,
-        optional($.function_arguments),
+        optional($._function_arguments),
         $._function_call_end,
       ),
 
       _function_call_start: $ => '(',
       _function_call_end: $ => ')',
 
-      function_arguments: $ => prec.right(seq(
-        $.expression,
-        repeat(seq($._comma, $.expression,)),
+      _function_arguments: $ => prec.right(seq(
+        field('argument', $.expression),
+        repeat(seq($._comma, field('argument', $.expression,))),
         optional(choice($._comma, $.ellipsis)),
       )),
 
@@ -273,13 +273,13 @@ module.exports = function make_grammar(dialect) {
       )),
 
       heredoc_template: $ => seq(
-        $.heredoc_start,
+        $._heredoc_start,
         $.heredoc_identifier,
         optional($._template),
         $.heredoc_identifier,
       ),
 
-      heredoc_start: $ => choice('<<', '<<-'),
+      _heredoc_start: $ => choice('<<', '<<-'),
 
       strip_marker: $ => '~',
 
