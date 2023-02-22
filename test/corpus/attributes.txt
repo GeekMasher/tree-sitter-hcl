@@ -10,12 +10,9 @@ foo = "bar"
   (body
     (attribute
       (identifier)
-      (expression
-        (literal_value
-          (string_lit
-            (quoted_template_start)
-            (template_literal)
-            (quoted_template_end)))))))
+      (literal_value
+        (string_lit
+          (template_literal))))))
 
 ================================================================================
 attribute with variable
@@ -29,6 +26,5 @@ foo = bar
   (body
     (attribute
       (identifier)
-      (expression
-        (variable_expr
-          (identifier))))))
+      (variable_expr
+        (identifier)))))

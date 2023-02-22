@@ -10,9 +10,7 @@ block_1 {
 (config_file
   (body
     (block
-      (identifier)
-      (block_start)
-      (block_end))))
+      (identifier))))
 
 ================================================================================
 basic block on one line
@@ -25,9 +23,7 @@ block_1 {}
 (config_file
   (body
     (block
-      (identifier)
-      (block_start)
-      (block_end))))
+      (identifier))))
 
 ================================================================================
 basic block with empty type
@@ -42,11 +38,7 @@ block_1 "" {
   (body
     (block
       (identifier)
-      (string_lit
-        (quoted_template_start)
-        (quoted_template_end))
-      (block_start)
-      (block_end))))
+      (string_lit))))
 
 ================================================================================
 block with attribute
@@ -63,24 +55,15 @@ block_1 "strlit1" "strlit2" {
     (block
       (identifier)
       (string_lit
-        (quoted_template_start)
-        (template_literal)
-        (quoted_template_end))
+        (template_literal))
       (string_lit
-        (quoted_template_start)
-        (template_literal)
-        (quoted_template_end))
-      (block_start)
+        (template_literal))
       (body
         (attribute
           (identifier)
-          (expression
-            (literal_value
-              (string_lit
-                (quoted_template_start)
-                (template_literal)
-                (quoted_template_end))))))
-      (block_end))))
+          (literal_value
+            (string_lit
+              (template_literal))))))))
 
 ================================================================================
 nested block
@@ -97,13 +80,9 @@ block_1 {
   (body
     (block
       (identifier)
-      (block_start)
       (body
         (block
-          (identifier)
-          (block_start)
-          (block_end)))
-      (block_end))))
+          (identifier))))))
 
 ================================================================================
 nested block on one line
@@ -119,13 +98,9 @@ block_1 {
   (body
     (block
       (identifier)
-      (block_start)
       (body
         (block
-          (identifier)
-          (block_start)
-          (block_end)))
-      (block_end))))
+          (identifier))))))
 
 ================================================================================
 nested blocks
@@ -142,17 +117,11 @@ block_1 {
   (body
     (block
       (identifier)
-      (block_start)
       (body
         (block
-          (identifier)
-          (block_start)
-          (block_end))
+          (identifier))
         (block
-          (identifier)
-          (block_start)
-          (block_end)))
-      (block_end))))
+          (identifier))))))
 
 ================================================================================
 one line block
@@ -167,26 +136,15 @@ locals { timestamp = regex_replace(timestamp(), "[- TZ:]", "") }
   (body
     (block
       (identifier)
-      (block_start)
       (body
         (attribute
           (identifier)
-          (expression
+          (function_call
+            (identifier)
             (function_call
-              (identifier)
-              (function_arguments
-                (expression
-                  (function_call
-                    (identifier)))
-                (expression
-                  (literal_value
-                    (string_lit
-                      (quoted_template_start)
-                      (template_literal)
-                      (quoted_template_end))))
-                (expression
-                  (literal_value
-                    (string_lit
-                      (quoted_template_start)
-                      (quoted_template_end)))))))))
-      (block_end))))
+              (identifier))
+            (literal_value
+              (string_lit
+                (template_literal)))
+            (literal_value
+              (string_lit))))))))
