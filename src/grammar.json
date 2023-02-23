@@ -647,8 +647,13 @@
           "type": "FIELD",
           "name": "index",
           "content": {
-            "type": "PATTERN",
-            "value": "[0-9]+"
+            "type": "ALIAS",
+            "content": {
+              "type": "PATTERN",
+              "value": "[0-9]+"
+            },
+            "named": true,
+            "value": "numeric_lit"
           }
         }
       ]

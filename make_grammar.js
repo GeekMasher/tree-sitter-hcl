@@ -172,7 +172,7 @@ module.exports = function make_grammar(dialect) {
       index: $ => $._index,
 
       _new_index: $ => seq('[', field('index', $._expression), ']'),
-      _legacy_index: $ => seq('.', field('index', /[0-9]+/)),
+      _legacy_index: $ => seq('.', field('index', alias(/[0-9]+/, $.numeric_lit))),
 
       _get_attr: $ => seq('.', field('key', $.identifier)),
       get_attr: $ => $._get_attr,

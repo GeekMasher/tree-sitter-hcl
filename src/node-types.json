@@ -678,6 +678,10 @@
           {
             "type": "_expression",
             "named": true
+          },
+          {
+            "type": "numeric_lit",
+            "named": true
           }
         ]
       }
@@ -703,6 +707,10 @@
         "types": [
           {
             "type": "_expression",
+            "named": true
+          },
+          {
+            "type": "numeric_lit",
             "named": true
           }
         ]
