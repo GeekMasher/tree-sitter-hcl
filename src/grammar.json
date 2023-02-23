@@ -328,20 +328,12 @@
       "type": "CHOICE",
       "members": [
         {
-          "type": "FIELD",
-          "name": "decimal",
-          "content": {
-            "type": "PATTERN",
-            "value": "[0-9]+(\\.[0-9]+([eE][-+]?[0-9]+)?)?"
-          }
+          "type": "PATTERN",
+          "value": "[0-9]+(\\.[0-9]+([eE][-+]?[0-9]+)?)?"
         },
         {
-          "type": "FIELD",
-          "name": "hexadecimal",
-          "content": {
-            "type": "PATTERN",
-            "value": "0x[0-9a-zA-Z]+"
-          }
+          "type": "PATTERN",
+          "value": "0x[0-9a-zA-Z]+"
         }
       ]
     },
@@ -655,8 +647,13 @@
           "type": "FIELD",
           "name": "index",
           "content": {
-            "type": "PATTERN",
-            "value": "[0-9]+"
+            "type": "ALIAS",
+            "content": {
+              "type": "PATTERN",
+              "value": "[0-9]+"
+            },
+            "named": true,
+            "value": "numeric_lit"
           }
         }
       ]

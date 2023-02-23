@@ -50,7 +50,8 @@ provider "kubernetes" {
                         (identifier))
                       (identifier))
                     (identifier))
-                  (identifier)))
+                  (identifier))
+                (numeric_lit))
               (identifier))))))))
 
 ================================================================================

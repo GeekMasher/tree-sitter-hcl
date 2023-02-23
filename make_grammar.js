@@ -104,8 +104,8 @@ module.exports = function make_grammar(dialect) {
       ),
 
       numeric_lit: $ => choice(
-        field('decimal', /[0-9]+(\.[0-9]+([eE][-+]?[0-9]+)?)?/),
-        field('hexadecimal', /0x[0-9a-zA-Z]+/)
+        /[0-9]+(\.[0-9]+([eE][-+]?[0-9]+)?)?/,
+        /0x[0-9a-zA-Z]+/
       ),
 
       bool_lit: $ => choice('true', 'false'),
@@ -172,7 +172,7 @@ module.exports = function make_grammar(dialect) {
       index: $ => $._index,
 
       _new_index: $ => seq('[', field('index', $._expression), ']'),
-      _legacy_index: $ => seq('.', field('index', /[0-9]+/)),
+      _legacy_index: $ => seq('.', field('index', alias(/[0-9]+/, $.numeric_lit))),
 
       _get_attr: $ => seq('.', field('key', $.identifier)),
       get_attr: $ => $._get_attr,
