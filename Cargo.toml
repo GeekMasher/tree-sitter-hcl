@@ -5,7 +5,7 @@ version = "0.0.1"
 keywords = ["incremental", "parsing", "hcl"]
 categories = ["parsing", "text-editors"]
 repository = "https://github.com/MichaHoffmann/tree-sitter-hcl"
-edition = "2024"
+edition = "2021"
 license = "Apache"
 
 build = "bindings/rust/build.rs"
@@ -15,7 +15,8 @@ include = ["bindings/rust/*", "grammar.js", "queries/*", "src/*"]
 path = "bindings/rust/lib.rs"
 
 [dependencies]
-tree-sitter-language = "0.1.0"
+tree-sitter = ">= 0.23.0"
+tree-sitter-language = "0.1"
 
 [build-dependencies]
-cc = "1.1"
+cc = "1.2"
